@@ -7,7 +7,7 @@ It's mostly a way to put study to practice. <br><br>
 All implementations are totaly original and made by me,
 even the constants were computaded =P. <br><br>
 
-I used mostly Taylor Series to reach the results. <br>
+I mostly used the Taylor Series to reach the results. <br>
 Although I took optimization in consideration,
 I'm still an undergraduate and there probreblly faster ways
 to reach some results. <br><br>
