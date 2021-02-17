@@ -4,15 +4,15 @@ ENG:<br>
 Just an attempt to make an advanced calculator by myself on c/c++. <br>
 It's mostly a way to put study to practice. <br><br>
 
-All implementations are totaly original and made by me,
+All implementations are totally original and made by me,
 even the constants were computaded =P. <br><br>
 
 I mostly used the Taylor Series to reach the results. <br>
 Although I took optimization in consideration,
-I'm still an undergraduate and there probreblly faster ways
+I'm still an undergraduate and there probably are faster ways
 to reach some results. <br><br>
 
-(Code's also still in development and comments may not help a lot.)
+(Code is also still in development and comments may not help a lot.)
 
 <br>
 <hr>
@@ -21,7 +21,7 @@ to reach some results. <br><br>
 
 PT: <br>
 Apenas uma tentativa de criar uma calculadora avançada em c/c++ sozinho. <br>
-É principalmente uma forma de colocar o estudo em prática. <br><br>
+É principalmente uma forma de colocar os estudos em prática. <br><br>
 
 Todas as implementações são totalmente originais e feitas por mim,
 até mesmo as constantes foram calculadas =P. <br><br>
