@@ -153,6 +153,11 @@ double pow(double a, double x){
 
 
 //TRIGONOMETRICAS-------------------------------------
+
+double pitagoras(double x0, double x1){
+    return pow( x0*x0 + x1*x1, 0.5);
+}
+
 double cos(double x){
     
     while(x > getPi()*2)
@@ -161,7 +166,7 @@ double cos(double x){
         x = x - getPi()*2;
         
     double y = 1, fat = 2, po = x*x;
-    for(int i = 2; i < 13; i++)
+    for(int i = 2; i < 15; i++)
     {
         if(i%2 == 0)
             y -= po/fat;
@@ -184,7 +189,7 @@ double sin(double x){
         x = x - getPi()*2;
         
     double y = 0, fat = 1, po = x;
-    for(int i = 1; i < 13; i++)
+    for(int i = 1; i < 15; i++)
     {
         if(i%2 == 0)
             y -= po/fat;
@@ -203,9 +208,53 @@ double tan(double x){
     return sin(x)/cos(x);
 }
 
+//INVERSAS----------------------------------------------------
+
+double arcsin(double x){
+    /*double y = 0, fat1 = 1, fat2 = 1, po = 1, pox = x; APROXIMAÇÃO RUIM
+    x *= x;
+    for(int i = 0; i < 30; i++)
+    {
+        y += pox*(fat2/(fat1*fat1))*(1/(po*(2*i+1)));
+        
+        fat1 *= (i+1);
+        fat2 *= (2*i+1)*(2*i+1);
+        
+        po *= 4; 
+        
+        pox *= x;
+    }
+    return y;*/
+    //Metodo de Newton
+    double y = 1;
+    for (int i = 0; i < 6; i++)
+    {
+        y = y - ((sin(y)-x)/cos(y));
+    }
+    return y;
+}
+
+double arccos(double x){
+    //Metodo de Newton
+    double y = 1;
+    for (int i = 0; i < 6; i++)
+    {
+        y = y + ((cos(y)-x)/sin(y));
+    }
+    return y;
+}
+
+double arctan(double x){
+    return arcsin(x/pitagoras(1, x));
+}
+
+
+
+//HIPERBOLICAS---------------------------------------------
+
 double cosh(double x){
     double y = 1, fat = 2, po = x*x;
-    for(int i = 2; i <18; i++)
+    for(int i = 2; i <20; i++)
     {
         y += po/fat;
         fat *= 2*i-1;
@@ -219,7 +268,7 @@ double cosh(double x){
 double sinh(double x){
     
     double y = 0, fat = 1, po = x;
-    for(int i = 1; i < 18; i++)
+    for(int i = 1; i < 20; i++)
     {
         y += po/fat;
         fat *= 2*i;

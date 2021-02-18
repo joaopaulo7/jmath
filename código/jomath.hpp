@@ -87,11 +87,16 @@ struct numComplexo{
 };
 
 
+
 //OPERAÇOES COMPLEXAS COM NUMEROS COMPLEXOS------------------------------------------
 
 //EXPONENCIAIS---------------------------------------------
 numComplexo ln(numComplexo x){
-    
+    numComplexo y;
+    double h = pitagoras(x.real, x.imag);
+    y.real = ln(h);
+    y.imag= arcsin(x.imag/h);
+    return y;
 }
 
 numComplexo pow(numComplexo a, double x){
@@ -104,6 +109,14 @@ numComplexo powi(double a){
     numComplexo y;
     y.real = cos(ln(a));
     y.imag = sin(ln(a));
+    return y;
+}
+
+numComplexo exp(numComplexo a){
+    numComplexo y;
+    y.real = cos(a.imag);
+    y.imag = sin(a.imag);
+    y = y * exp(a.real);
     return y;
 }
 
