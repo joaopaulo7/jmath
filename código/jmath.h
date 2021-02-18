@@ -226,7 +226,7 @@ double arcsin(double x){
     }
     return y;*/
     //Metodo de Newton
-    double y = getPi()/4;
+    double y = 0;
     for (int i = 0; i < 6; i++)
     {
         y = y - ((sin(y)-x)/cos(y));
@@ -236,7 +236,7 @@ double arcsin(double x){
 
 double arccos(double x){
     //Metodo de Newton
-    double y = getPi()/4;
+    double y = getPi()/2;
     for (int i = 0; i < 6; i++)
     {
         y = y + ((cos(y)-x)/sin(y));
