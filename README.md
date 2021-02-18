@@ -2,7 +2,7 @@
 
 ENG:<br>
 Just an attempt to make an advanced calculator by myself on c/c++. <br>
-It's mostly a way to put study to practice. <br><br>
+It's mostly a way to turn study into practice. <br><br>
 
 All implementations are totally original and made by me,
 even the constants were computaded =P. <br><br>
