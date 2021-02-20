@@ -30,11 +30,19 @@ int main()
     numComplexo tst;
     tst.real = 1;
     tst.imag = 1.4;
-    double teste = 0.01;
-    
-    printf("%.14f\n", cos(teste));
-    printf("%.14f\n", arccos(cos(teste)));
-    printf("%.14f\n", (sin(1-cos(teste))));
+    double teste = getPi()/2 ;
+    while(teste >  getPi()/2 - 0.1)
+    {
+        //printf("%.14f<>", teste);
+        //printf("%.14f\n\n", exp(ln(teste)));
+        printf("%.14f\n\n", sin(teste));
+        printf("%.14f<>", teste);
+        printf("%.14f\n\n", arcsin(sin(teste)));
+        printf("%.14f\n", teste - arcsin(sin(teste)));
+        //printf("%.14f<>", getPi()*teste);
+        //printf("%.14f\n", (arcsin(sin(getPi()*teste))));
+        teste -= 0.0001;
+    }
     
     tst = exp(tst);
     printf("%.14f + %.14fi\n", tst.real, tst.imag);

@@ -64,11 +64,7 @@ int log2(int x){
 }
 
 double ln(double x){
-    if(x <= 0)
-        throw(0/0);
-    
     int n = 0;
-    
     if(x < 0.625)
     {
         while(x < 0.625)
@@ -120,10 +116,17 @@ double log(double x, double a){
 }
 
 double exp(double x){
-    if(x >= 1)
+    if(x >= 1 or x <= -1)
     {
+        char sign= 1;
+        if(x < 0)
+        {
+            x *= -1;
+            sign = -1;
+        }
         int n = int(x);
         x -= n;
+        
         double y = 1, p = x, f = 1;
         for (int i = 2; i < 19; i++)
         {
@@ -131,7 +134,10 @@ double exp(double x){
             f *= i;
             p *= x;
         }
-        return y*pow(getE(), n);
+        if(sign > 0)
+            return y*pow(getE(), n);
+        else
+            return 1/(y*pow(getE(), n));
     }
     else
     {
@@ -209,29 +215,78 @@ double tan(double x){
 double arcsin(double x){
     //Metodo de Newton
     double x0;
+    char sign = 0;
+    if(x <= 0)
+    {
+        sign = 1;
+        x *= -1;
+    }
+    if(x > 0.999992)
+    {
+        x = x*x;
+        if(x >= 1)
+            x0 =  1 - x;
+        else
+            x0 = pow( 1 - x, 0.5);
+
+        if(sign)
+            return x0 - getPi()/2;
+        else
+            return getPi()/2 - x0;
+    }
+    
+    
     if(x > 0.70710678118655)
         x0 = 0;
     else
-        x0 = getPi();
+        x0 = getPi()/2;
     
     for (int i = 0; i < 10; i++)
         x0 = x0 - ((sin(x0)-x)/cos(x0));
     
-    return x0;
+    if(sign)
+        return -x0;
+    else
+        return x0;
 }
 
 double arccos(double x){
     //Metodo de Newton
     double x0;
+    char sign = 0;
+    
+    if(x < 0)
+    {
+        sign = 1;
+        x *= -1;
+    }
+    if(x > 0.999992)
+    {
+        x = x*x;
+        if(x >= 1)
+            x0 =  1 - x;
+        else
+            x0 = pow( 1 - x, 0.5);
+
+        if(sign)
+            return getPi() - x0;
+        else
+            return x0;
+    }
+    
+    
     if(x > 0.70710678118655)
         x0 = getPi()/4;
     else
-        x0 = -getPi()/4;
+        x0 = 3*getPi()/4;
         
     for (int i = 0; i < 10; i++)
         x0 = x0 + ((cos(x0)-x)/sin(x0));
-        
-    return x0;
+    
+    if(sign)
+        return getPi() -x0;
+    else
+        return x0;
 }
 
 double arctan(double x){
