@@ -159,13 +159,11 @@ double pitagoras(double x0, double x1){
 }
 
 double cos(double x){
-    
-    while(x > getPi()*2)
+    while(x > getPi())
         x -= getPi()*2;
-    if(x > getPi())
-        x = x - getPi()*2;
         
     double y = 1, fat = 2, po = x*x;
+    x = po;
     for(int i = 2; i < 15; i++)
     {
         if(i%2 == 0)
@@ -175,7 +173,6 @@ double cos(double x){
         fat *= 2*i-1;
         fat *= 2*i;
         po *= x;
-        po *= x;
     }
     
     return y;
@@ -183,13 +180,13 @@ double cos(double x){
 
 double sin(double x){
     
-    while(x > getPi()*2)
+    while(x > getPi())
         x -= getPi()*2;
-    if(x > getPi())
-        x = x - getPi()*2;
-        
-    double y = 0, fat = 1, po = x;
-    for(int i = 1; i < 15; i++)
+    
+    double y = x, fat = 6, po = x*x*x;
+    x = x*x;
+    
+    for(int i = 2; i < 15; i++)
     {
         if(i%2 == 0)
             y -= po/fat;
@@ -197,7 +194,6 @@ double sin(double x){
             y += po/fat;
         fat *= 2*i;
         fat *= 2*i+1;
-        po *= x;
         po *= x;
     }
     
@@ -211,37 +207,31 @@ double tan(double x){
 //INVERSAS----------------------------------------------------
 
 double arcsin(double x){
-    /*double y = 0, fat1 = 1, fat2 = 1, po = 1, pox = x; APROXIMAÇÃO RUIM
-    x *= x;
-    for(int i = 0; i < 30; i++)
-    {
-        y += pox*(fat2/(fat1*fat1))*(1/(po*(2*i+1)));
-        
-        fat1 *= (i+1);
-        fat2 *= (2*i+1)*(2*i+1);
-        
-        po *= 4; 
-        
-        pox *= x;
-    }
-    return y;*/
     //Metodo de Newton
-    double y = 0;
-    for (int i = 0; i < 6; i++)
-    {
-        y = y - ((sin(y)-x)/cos(y));
-    }
-    return y;
+    double x0;
+    if(x > 0.70710678118655)
+        x0 = 0;
+    else
+        x0 = getPi();
+    
+    for (int i = 0; i < 10; i++)
+        x0 = x0 - ((sin(x0)-x)/cos(x0));
+    
+    return x0;
 }
 
 double arccos(double x){
     //Metodo de Newton
-    double y = getPi()/2;
-    for (int i = 0; i < 6; i++)
-    {
-        y = y + ((cos(y)-x)/sin(y));
-    }
-    return y;
+    double x0;
+    if(x > 0.70710678118655)
+        x0 = getPi()/4;
+    else
+        x0 = -getPi()/4;
+        
+    for (int i = 0; i < 10; i++)
+        x0 = x0 + ((cos(x0)-x)/sin(x0));
+        
+    return x0;
 }
 
 double arctan(double x){
