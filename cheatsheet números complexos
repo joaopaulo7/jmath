@@ -1,0 +1,23 @@
+i*a = a*i;
+
+i*(a+b*i) = a*i-b;
+
+a/i = -a*i;
+
+i^a = cos(pi/2*a) + i*sin(pi/2*a); inclusive raízes.
+
+i^a = e^(i*pi/2*a); inclusive raízes.
+
+ln(i) = i*pi/2*n; sendo n um número natural e ímpar.
+
+a^i = cos(ln(a)) + i*sin(ln(a));
+
+i^i = e^(-pi/2*n); sendo n um número natural e ímpar.
+
+cos(a*i) = cosh(a);
+
+sen(a*i) = senh(a)*i;
+
+cosh(a*i) = cos(a);
+
+senh(a*i) = sen(a)*i;

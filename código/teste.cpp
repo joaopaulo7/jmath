@@ -23,6 +23,7 @@
 
 
 #include <stdio.h>
+#include <iostream>
 #include "jomath.hpp"
 
 int main()
@@ -33,11 +34,5 @@ int main()
     
     printf("%.15f\n", fat(41));
     printf("%.15f\n", exp(6.8));
-    
-    tst = exp(tst);
-    printf("%.14f + %.14fi\n", tst.real, tst.imag);
-    tst = ln(tst);
-    printf("%.14f + %.14fi\n", tst.real, tst.imag);
-    
 }
 
