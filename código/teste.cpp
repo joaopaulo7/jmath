@@ -34,5 +34,9 @@ int main()
     
     printf("%.15f\n", fat(41));
     printf("%.15f\n", exp(6.8));
+    printf("%.15f\n", cosh(3));
+    printf("%.15f\n", sinh(3));
+    
+    printf("%.15f\n", tanh(3));
 }
 
