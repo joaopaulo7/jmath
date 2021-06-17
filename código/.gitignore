@@ -6,3 +6,6 @@ jmath
 
 jomath.hpp.gch
 jomath
+
+jmath_constants.h.gch
+jmath_constants

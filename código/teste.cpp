@@ -30,13 +30,10 @@ int main()
 {
     numComplexo tst;
     tst.real = 1;
-    tst.imag = 1.4;
+    tst.imag = 1;
     
-    printf("%.15f\n", fat(41));
-    printf("%.15f\n", exp(6.8));
-    printf("%.15f\n", cosh(3));
-    printf("%.15f\n", sinh(3));
+    tst = tst*tst*tst;
     
-    printf("%.15f\n", tanh(3));
+    std::cout<< tst <<"   " << fat(8);
 }
 

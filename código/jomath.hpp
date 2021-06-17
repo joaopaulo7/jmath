@@ -84,6 +84,29 @@ struct numComplexo{
         aux.imag = n0.imag/n1;
         return aux;
     }
+    
+    //SAIDAS
+    friend std::ostream& operator<<(std::ostream& os, const numComplexo& n0){
+        if (n0.real != 0)
+        {
+            os << n0.real;
+            if(n0.imag < 0)
+                os <<" - " << n0.imag*(-1)<<"i";
+            else if(n0.imag != 0)
+                os <<" + " << n0.imag <<"i";
+        }
+        else if(n0.imag == 0)
+            os << "0";
+        else
+        {
+            if(n0.imag < 0)
+                os << n0.imag*(-1)<<"i";
+            else if(n0.imag != 0)
+                os << n0.imag <<"i";
+        }
+        
+        return os;
+    }
 };
 
 
