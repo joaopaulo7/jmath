@@ -122,9 +122,26 @@ numComplexo ln(numComplexo x){
     return y;
 }
 
-numComplexo pow(numComplexo a, double x){
+numComplexo pow(numComplexo a, unsigned x){
     numComplexo y;
-    //y.real = cos()
+    for(unsigned i = 0; i < x; i++)
+    {
+        switch(i%4)
+        {
+            case 0:
+                y.real = pow(a.real, x - i)*pow(a.imag, i) * jmath_tPascal[x][i]; 
+                break;
+            case 1:
+                y.imag = pow(a.real, x - i)*pow(a.imag, i) * jmath_tPascal[x][i];
+                break;
+            case 2:
+                y.real = -pow(a.real, x - i)*pow(a.imag, i) * jmath_tPascal[x][i]; 
+                break;
+            case 3:
+                y.imag = -pow(a.real, x - i)*pow(a.imag, i) * jmath_tPascal[x][i];
+                break;
+        }
+    }
     return y;
 }
 

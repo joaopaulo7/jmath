@@ -40,7 +40,7 @@ double fat(unsigned x){
 
 //EXPONENCIAIS--------------------------------------------
 
-double pow(double x, int a){
+double pow(double x, unsigned a){
     double y = 1;
     while(a > 0)
     {
@@ -48,6 +48,25 @@ double pow(double x, int a){
         a--;
     }
     return y;
+}
+
+double pow(double x, int a){
+    double y = 1;
+    char sign = 0;
+    
+    if(a < 0)
+        sign = 1;
+    
+    while(a > 0)
+    {
+        y *= x;
+        a--;
+    }
+    
+    if(sign)
+        return 1/y;
+    else
+        return y;
 }
 
 int log2(int x){
