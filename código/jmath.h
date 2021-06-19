@@ -247,11 +247,7 @@ double arccos(double x){
             return x0;
     }
     
-    
-    if(x > 0.70710678118655)
-        x0 = getPi()/4;
-    else
-        x0 = 3*getPi()/4;
+    x0 = getPi()/4;
         
     for (int i = 0; i < 10; i++)
         x0 = x0 + ((cos(x0)-x)/sin(x0));
@@ -287,10 +283,7 @@ double arcsin(double x){
     }
     
     
-    if(x > 0.70710678118655)
-        x0 = 0;
-    else
-        x0 = getPi()/2;
+    x0 = getPi()/4;
     
     for (int i = 0; i < 10; i++)
         x0 = x0 - ((sin(x0)-x)/cos(x0));
@@ -310,12 +303,12 @@ double arctan(double x){
 
 double cosh(double x){
     double ex = exp(x);
-    return (ex - 1/ex)/2;
+    return (ex + 1/ex)/2;
 }
 
 double sinh(double x){
     double ex = exp(x);
-    return (ex + 1/ex)/2;
+    return (ex - 1/ex)/2;
 }
 
 double tanh(double x){

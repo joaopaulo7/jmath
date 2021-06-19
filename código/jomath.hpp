@@ -110,10 +110,60 @@ struct numComplexo{
 };
 
 
-
 //OPERAÇOES COMPLEXAS COM NUMEROS COMPLEXOS------------------------------------------
 
+//TRIGONOMETRICAS-------------------------------------
+numComplexo cos(numComplexo x){
+    numComplexo y;
+    y.real = cos(x.real)*cosh(x.imag);
+    y.imag = - sin(x.real)*sinh(x.imag);
+    return y;
+}
+
+numComplexo sin(numComplexo x){
+    numComplexo y;
+    y.real = sin(x.real)*cosh(x.imag);
+    y.imag = + cos(x.real)*sinh(x.imag);
+    return y;
+}
+
+numComplexo tan(numComplexo x){
+    return sin(x)/cos(x);
+}
+
+
+//HIPERBOLICAS---------------------------------------------
+numComplexo cosh(numComplexo x){
+    numComplexo i;
+    i.real = 0;
+    i.imag = 1;
+    return cos(x * i);
+}
+
+numComplexo sinh(numComplexo x){
+    numComplexo i;
+    i.real = 0;
+    i.imag = 1;
+    return sin(x * i) * (i * -1);
+}
+
+numComplexo tanh(numComplexo x){
+    numComplexo i;
+    i.real = 0;
+    i.imag = 1;
+    return tan(x * i) * (i * -1);
+}
+
+
 //EXPONENCIAIS---------------------------------------------
+numComplexo exp(numComplexo a){
+    numComplexo y;
+    y.real = cos(a.imag);
+    y.imag = sin(a.imag);
+    y = y * exp(a.real);
+    return y;
+}
+
 numComplexo ln(numComplexo x){
     numComplexo y;
     double h = pitagoras(x.real, x.imag);
@@ -124,21 +174,30 @@ numComplexo ln(numComplexo x){
 
 numComplexo pow(numComplexo a, unsigned x){
     numComplexo y;
-    for(unsigned i = 0; i < x; i++)
+    if(x == 0)
+    {
+        y .real = 1;
+        y.imag = 0;
+        return y;
+    }
+    y.real = 0;
+    y.imag = 0;
+    
+    for(unsigned i = 0; i <= x; i++)
     {
         switch(i%4)
         {
             case 0:
-                y.real = pow(a.real, x - i)*pow(a.imag, i) * jmath_tPascal[x][i]; 
+                y.real   += pow(a.real, x - i)*pow(a.imag, i) * jmath_tPascal[x][i]; 
                 break;
             case 1:
-                y.imag = pow(a.real, x - i)*pow(a.imag, i) * jmath_tPascal[x][i];
+                y.imag += pow(a.real, x - i)*pow(a.imag, i) * jmath_tPascal[x][i];
                 break;
             case 2:
-                y.real = -pow(a.real, x - i)*pow(a.imag, i) * jmath_tPascal[x][i]; 
+                y.real   -= pow(a.real, x - i)*pow(a.imag, i) * jmath_tPascal[x][i]; 
                 break;
             case 3:
-                y.imag = -pow(a.real, x - i)*pow(a.imag, i) * jmath_tPascal[x][i];
+                y.imag -= pow(a.real, x - i)*pow(a.imag, i) * jmath_tPascal[x][i];
                 break;
         }
     }
@@ -152,30 +211,13 @@ numComplexo powi(double a){
     return y;
 }
 
-numComplexo exp(numComplexo a){
-    numComplexo y;
-    y.real = cos(a.imag);
-    y.imag = sin(a.imag);
-    y = y * exp(a.real);
+numComplexo pow(numComplexo a, numComplexo x){
+    numComplexo aux = ln(a), y, i;
+    i.real = 0;
+    i.imag = 1;
+    unsigned intReal = (unsigned) a.real;
+
+    y = pow(a, intReal) * exp(aux*(i * x.imag + a.real - intReal));
+    
     return y;
-}
-
-
-//TRIGONOMETRICAS-------------------------------------
-numComplexo cos(numComplexo x){
-    numComplexo y;
-    y.real = cos(x.real)*cosh(x.imag);
-    y.imag = - sin(x.real)*sinh(x.imag);
-    return y;
-}
-
-numComplexo sin(numComplexo x){
-    numComplexo y;
-    y.real = sin(x.real)*cosh(x.imag);
-    y.imag = cos(x.real)*sinh(x.imag);
-    return y;
-}
-
-numComplexo tan(numComplexo x){
-    return sin(x)/cos(x);
 }

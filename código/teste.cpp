@@ -28,12 +28,17 @@
 
 int main()
 {
-    numComplexo tst;
-    tst.real = 1;
-    tst.imag = 1;
+    numComplexo tst, tst1, tst2;
+    tst.real = 2.5;
+    tst.imag = 4;
     
-    tst = tst*tst*tst;
+    tst1.real = 2.5;
+    tst1.imag = 2;
     
-    std::cout<< tst <<"   " << fat(8);
+    tst2.real = 0;
+    tst2.imag = 1;
+    
+    std::cout<< pow(tst, tst1) << std::endl;
+    std::cout<< tanh(tst) << std::endl;
 }
 
