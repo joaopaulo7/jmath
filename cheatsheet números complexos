@@ -14,10 +14,6 @@ a^i = cos(ln(a)) + i*sin(ln(a));
 
 i^i = e^(-pi/2*n); sendo n um número natural e ímpar.
 
-cos(a*i) = cosh(a);
-
-sen(a*i) = -senh(a)*i;
-
 cosh(a*i) = cos(a);
 
 senh(a*i) = -sen(a)*i;
