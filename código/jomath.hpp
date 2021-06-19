@@ -221,3 +221,4 @@ numComplexo pow(numComplexo a, numComplexo x){
     
     return y;
 }
+
