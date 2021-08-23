@@ -38,7 +38,8 @@ int main()
     tst2.real = 0;
     tst2.imag = 1;
     
+    printf("%.10e\n", pow(2, 120));
     std::cout<< pow(tst, tst1) << std::endl;
-    std::cout<< tanh(tst) << std::endl;
+    std::cout<< ln(tst) << std::endl;
 }
 

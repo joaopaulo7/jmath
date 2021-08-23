@@ -172,36 +172,27 @@ numComplexo ln(numComplexo x){
     return y;
 }
 
-numComplexo pow(numComplexo a, unsigned x){
+numComplexo pow(numComplexo x, unsigned a){
     numComplexo y;
-    if(x == 0)
-    {
-        y .real = 1;
-        y.imag = 0;
-        return y;
-    }
-    y.real = 0;
+    
+    y.real = 1;
     y.imag = 0;
     
-    for(unsigned i = 0; i <= x; i++)
+    if(a == 0)
+        return y;
+    
+    while(a > 1)
     {
-        switch(i%4)
+        if(a%2 == 1)
         {
-            case 0:
-                y.real   += pow(a.real, x - i)*pow(a.imag, i) * jmath_tPascal[x][i]; 
-                break;
-            case 1:
-                y.imag += pow(a.real, x - i)*pow(a.imag, i) * jmath_tPascal[x][i];
-                break;
-            case 2:
-                y.real   -= pow(a.real, x - i)*pow(a.imag, i) * jmath_tPascal[x][i]; 
-                break;
-            case 3:
-                y.imag -= pow(a.real, x - i)*pow(a.imag, i) * jmath_tPascal[x][i];
-                break;
+            y = y*x;
+            a--;
         }
+        x = x*x;
+        a /= 2;
     }
-    return y;
+    
+    return y*x;
 }
 
 numComplexo powi(double a){

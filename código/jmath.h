@@ -42,31 +42,51 @@ double fat(unsigned x){
 
 double pow(double x, unsigned a){
     double y = 1;
-    while(a > 0)
+    
+    if(a == 0)
+        return 1;
+        
+    while(a > 1)
     {
-        y *= x;
-        a--;
+        if(a%2 == 1)
+        {
+            y *= x;
+            a--;
+        }
+        x *= x;
+        a /= 2;
     }
-    return y;
+    return y*x;
 }
 
 double pow(double x, int a){
     double y = 1;
     char sign = 0;
     
-    if(a < 0)
-        sign = 1;
+    if(a == 0)
+        return 1;
     
-    while(a > 0)
+    if(a < 0)
     {
-        y *= x;
-        a--;
+        sign = 1;
+        a *= -1;
+    }
+    
+    while(a > 1)
+    {
+        if(a%2 == 1)
+        {
+            y *= x;
+            a--;
+        }
+        x *= x;
+        a /= 2;
     }
     
     if(sign)
-        return 1/y;
+        return 1/(y*x);
     else
-        return y;
+        return y*x;
 }
 
 int log2(int x){
@@ -281,8 +301,6 @@ double arcsin(double x){
         else
             return getPi()/2 - x0;
     }
-    
-    
     x0 = getPi()/4;
     
     for (int i = 0; i < 10; i++)
