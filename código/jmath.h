@@ -100,6 +100,8 @@ int log2(int x){
 }
 
 double ln(double x){
+    if(x <= 0)
+        return 0;
     int n = 0;
     if(x < 0.625)
     {
@@ -187,7 +189,11 @@ double exp(double x){
 }
 
 double pow(double a, double x){
-    return pow(a, int(x))*exp((x - int(x))*ln(a));
+    //ARRUMAR ISSO
+    if(a < 0 && (int)(1/x)% 2 == 0)
+        return 0;
+    else
+        return pow(a, int(x))*exp((x - int(x))*ln(a));
 }
 
 

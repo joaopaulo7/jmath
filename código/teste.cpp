@@ -28,6 +28,7 @@
 
 int main()
 {
+    double aux;
     numComplexo tst, tst1, tst2;
     tst.real = 2.5;
     tst.imag = 4;
@@ -40,7 +41,12 @@ int main()
     
     for(int i = 0; i < 20; i++)
     {
-        printf("%.16f\n", arcsin(1 - pow(0.1, i)));
+        printf("###%.16f####\n", 1 - pow(0.1, i));
+        printf("cos ->%.16f\n", arccos(pow(0.1, i)));
+        printf("apr ->%.16f\n", getPi()/2 - pow(0.1, i));
+        aux = pow(pow(1 - pow(0.1, i), 2), 0.5);
+        printf("sin ->%.16f\n", arcsin(aux));
+        printf("si2 ->%.16f\n", arcsin(1 - pow(0.1, i)));
     }
     printf("%.16f\n", arcsin(sin(0.5)));
     printf("%.16f\n", sin(0.5));
