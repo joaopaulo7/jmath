@@ -244,7 +244,6 @@ double tan(double x){
 //INVERSAS----------------------------------------------------
 
 double arccos(double x){
-    //Metodo de Newton
     double x0;
     char sign = 0;
     
@@ -267,6 +266,7 @@ double arccos(double x){
             return x0;
     }
     
+    //Metodo de Newton
     x0 = getPi()/4;
         
     for (int i = 0; i < 10; i++)
@@ -279,7 +279,6 @@ double arccos(double x){
 }
 
 double arcsin(double x){
-    //Metodo de Newton
     double x0;
     char sign = 0;
     if(x <= 0)
@@ -301,6 +300,8 @@ double arcsin(double x){
         else
             return getPi()/2 - x0;
     }
+    
+    //Metodo de Newton
     x0 = getPi()/4;
     
     for (int i = 0; i < 10; i++)
