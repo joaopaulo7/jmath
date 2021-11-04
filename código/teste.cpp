@@ -30,16 +30,18 @@ int main()
 {
     double aux;
     numComplexo tst, tst1, tst2;
-    tst.real = 2.5;
-    tst.imag = 4;
+    tst.real = -pow(19, 1)/2;
+    tst.imag = pow(13, 0.5)/2;
     
-    tst1.real = 2.5;
-    tst1.imag = 2;
+    tst1.real = -pow(19, 0.5)/2;
+    tst1.imag = -pow(13, 0.5)/2;
     
     tst2.real = 0;
     tst2.imag = 1;
     
-    for(int i = 0; i < 20; i++)
+    std::cout<< tst*tst + tst1*tst1<< std::endl;
+    
+    /*for(int i = 0; i < 20; i++)
     {
         printf("###%.16f####\n", 1 - pow(0.1, i));
         printf("cos ->%.16f\n", arccos(pow(0.1, i)));
@@ -53,6 +55,6 @@ int main()
     printf("%.16f\n", arccos(cos(0.5)));
     printf("%.16f\n", cos(0.5));
     std::cout<< pow(tst, tst1) << std::endl;
-    std::cout<< ln(tst) << std::endl;
+    std::cout<< ln(tst) << std::endl;*/
 }
 
