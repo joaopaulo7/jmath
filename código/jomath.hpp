@@ -112,6 +112,10 @@ struct numComplexo{
 
 //OPERAÇOES COMPLEXAS COM NUMEROS COMPLEXOS------------------------------------------
 
+double norm(numComplexo x){
+    return pow(x.real*x.real + x.imag*x.imag, 0.5);
+}
+
 //TRIGONOMETRICAS-------------------------------------
 numComplexo cos(numComplexo x){
     numComplexo y;

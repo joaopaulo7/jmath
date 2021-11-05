@@ -30,16 +30,17 @@ int main()
 {
     double aux;
     numComplexo tst, tst1, tst2;
-    tst.real = -pow(19, 1)/2;
-    tst.imag = pow(13, 0.5)/2;
+    tst.real = 3;
+    tst.imag = -2;
     
-    tst1.real = -pow(19, 0.5)/2;
-    tst1.imag = -pow(13, 0.5)/2;
+    tst1.real = -3;
+    tst1.imag = 1;
     
     tst2.real = 0;
     tst2.imag = 1;
     
-    std::cout<< tst*tst + tst1*tst1<< std::endl;
+    std::cout<< tst/tst1<< std::endl;
+    std::cout<<norm( tst*tst1)<< std::endl;
     
     /*for(int i = 0; i < 20; i++)
     {
