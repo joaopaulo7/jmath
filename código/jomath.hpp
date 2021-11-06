@@ -170,7 +170,7 @@ numComplexo exp(numComplexo a){
 
 numComplexo ln(numComplexo x){
     numComplexo y;
-    double h = pitagoras(x.real, x.imag);
+    double h = dist(x.real, x.imag);
     y.real = ln(h);
     y.imag= arcsin(x.imag/h);
     return y;

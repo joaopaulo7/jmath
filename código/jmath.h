@@ -200,7 +200,7 @@ double pow(double a, double x){
 
 //TRIGONOMETRICAS-------------------------------------
 
-double pitagoras(double x0, double x1){
+double dist(double x0, double x1){
     return pow( x0*x0 + x1*x1, 0.5);
 }
 
@@ -320,7 +320,7 @@ double arcsin(double x){
 }
 
 double arctan(double x){
-    return arcsin(x/pitagoras(1, x));
+    return arcsin(x/dist(1, x));
 }
 
 
