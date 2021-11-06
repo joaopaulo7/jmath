@@ -1,5 +1,5 @@
-.o
-.gch
+*.o
+*.gch
 
 teste
 teste.o
